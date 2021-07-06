@@ -31,7 +31,35 @@ func main() { // this opening brace always be at where the function is declared.
 	fmt.Println("The value of x now is: ", x)
 
 	// floating point types in Go
+	/*
+		IEEE 754 is followed for storing float values.
+			float32 -
+			float64 -
 
+		complex64, complex128 are also there.
+	*/
+	var mypi float64 = 3.14
+	fmt.Println("The value of mypi/3 is:", mypi/3)
+
+	// Declaring variables
+	var xis0 int
+
+	var xy = 5
+
+	zc := 10
+
+	var (
+		xz int    = 1
+		y         = 2
+		z  int    = 3
+		ab string = "ab" + "cd"
+	)
+	fmt.Println("Different ways of declaring variables")
+	fmt.Println(xis0, xy, xz, y, z, ab, zc)
+
+	// const Constants
+	const myconst string = "My Constant"
+	fmt.Println(myconst)
 }
 
 // Use go run when you want to treat a Go program like a script and run the source code immediately.
@@ -46,3 +74,4 @@ func main() { // this opening brace always be at where the function is declared.
 /*
 Make golint and go vet (or golangci-lint) part of your development process to avoid common bugs and nonidiomatic code. But if you are using golangci-lint, make sure your team agrees on the rules that you want to enforce!
 */
+// It is a compile-time error to declare a local variable and to not read its value.
