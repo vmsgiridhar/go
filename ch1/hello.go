@@ -60,6 +60,73 @@ func main() { // this opening brace always be at where the function is declared.
 	// const Constants
 	const myconst string = "My Constant"
 	fmt.Println(myconst)
+
+	// composite types - array
+	var myarr = [3]int{10, 20, 30}
+	fmt.Println(myarr)
+
+	// sparse array
+	var mysparse = [12]int{10, 20, 6: 30, 40, 50, 60, 70}
+	fmt.Println(mysparse)
+
+	// comparing two arrays
+	var myarr1 = [...]int{1, 2, 30}
+	var myarr2 = [3]int{1, 2, 3}
+	fmt.Println("Is myarr1 equal to myarr2:", myarr1 == myarr2)
+
+	// Slices are more important than arrays in Go
+	// Using […] makes an array. Using [] makes a slice.
+	var myslice = []int{5, 6, 7}
+	fmt.Println("The value of myslice is: ", myslice)
+
+	// Multidimensional slice
+	var multidslice [2][3]int
+	fmt.Println("The Multi dimensional slic is : ", multidslice)
+	// The only thing you can compare a slice with is nil:
+	// A slice is the first type we’ve seen that isn’t comparable. It is a compile-time error to use == to see if two slices are identical or != to see if they are different.
+
+	// length function on a slice
+	var myslice2 []int
+	myslice2 = append(myslice2, 10)
+	fmt.Println("The length of myslice2 is: ", len(myslice2))
+
+	// slicing the slic
+	var myslice3 = []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	var myslice3_x = myslice3[:2]
+	fmt.Println("The value of myslice3_x is", myslice3_x)
+
+	// string
+	var mystring string = "Hi World!"
+	var b byte = mystring[1]
+	var bstring string = mystring[0:1]
+	fmt.Println("The value of b is: ", b)
+	fmt.Println("The value of bstring is: ", bstring)
+
+	// rune, byte and type conversions
+	var myrune rune = 's'
+	fmt.Println(myrune)
+
+	var mystring_myrune = string(myrune)
+	fmt.Println(mystring_myrune)
+
+	var mybyte byte = 'i'
+	var mystring_mybyte = string(mybyte)
+	fmt.Println(mystring_mybyte)
+
+	// map
+	var nilMap map[string]int
+	fmt.Println(nilMap)
+
+	mymap := map[string]int{}
+	fmt.Println(mymap)
+
+	// map with string as key and an array of strings
+	teams := map[string][]string{
+		"Orcas":   []string{"Fred", "Ralph", "Bijou"},
+		"Lions":   []string{"Sarah", "Peter", "Billie"},
+		"Kittens": []string{"Waldo", "Raul", "Ze"},
+	}
+	fmt.Println(teams)
 }
 
 // Use go run when you want to treat a Go program like a script and run the source code immediately.
@@ -75,3 +142,4 @@ func main() { // this opening brace always be at where the function is declared.
 Make golint and go vet (or golangci-lint) part of your development process to avoid common bugs and nonidiomatic code. But if you are using golangci-lint, make sure your team agrees on the rules that you want to enforce!
 */
 // It is a compile-time error to declare a local variable and to not read its value.
+// don’t use arrays unless you know the exact length you need ahead of time
