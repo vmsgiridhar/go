@@ -127,6 +127,34 @@ func main() { // this opening brace always be at where the function is declared.
 		"Kittens": []string{"Waldo", "Raul", "Ze"},
 	}
 	fmt.Println(teams)
+
+	// Using a map
+	totalWins := map[string]int{}
+	totalWins["India"] = 5
+	totalWins["Australia"] = 10
+	fmt.Println("Total wins of India are: ", totalWins["India"])
+
+	// delete from a map
+	delete(totalWins, "India")
+	fmt.Println("TotalWins is now: ", totalWins)
+
+	// As all keys in a map should be the same, we can't use it for an API
+	// So, we write a struct
+	type person struct {
+		name string
+		age  int
+		pet  string
+	}
+
+	// assigning a struct literal
+	bob := person{
+		"bob",
+		24,
+		"Tom",
+	}
+
+	fmt.Println("The bob is a Person: ", bob)
+	fmt.Println("Name of bob is : ", bob.name)
 }
 
 // Use go run when you want to treat a Go program like a script and run the source code immediately.
